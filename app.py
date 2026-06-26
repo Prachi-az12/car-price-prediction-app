@@ -19,12 +19,19 @@ km_driven = st.sidebar.number_input("Enter km driven", value=50000, min_value=10
 fuel = st.sidebar.selectbox("Select fuel type", ["Petrol", "Diesel"])
 
 if st.sidebar.button("Predict Price"):
+st.write("You have Selected:")
+    st.write(f"Company: {company}")
+    st.write(f"Name: {name}")
+    st.write(f"Year: {year}")
+    st.write(f"Kilo-Meters Driven: {km_driven}")
+    st.write(f"Fuel type: {fuel}")
+
     myinput = [[company, name, year, km_driven, fuel]]
     columns = ['company', 'name', 'year', 'kms_driven', 'fuel_type']
     myinput = pd.DataFrame(data=myinput, columns=columns)
-    result = pipe.predict(myinput)
 
+    result = pipe.predict(myinput)
     if result[0] < 0:
-        st.write("Sorry, the predicted price is negative. Please check your input values.")
+        st.write("Sorry, Predicted price is negative.. Please check your input values...")
     else:
-        st.write("Predicted price is:", str(round(result[0,0])))
+        st.write("Predicted Price:$", str(round(result[0,0])))
