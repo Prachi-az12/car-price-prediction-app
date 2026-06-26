@@ -19,7 +19,7 @@ km_driven = st.sidebar.number_input("Enter km driven", value=50000, min_value=10
 fuel = st.sidebar.selectbox("Select fuel type", ["Petrol", "Diesel"])
 
 if st.sidebar.button("Predict Price"):
-st.write("You have Selected:")
+    st.write("You have Selected:")
     st.write(f"Company: {company}")
     st.write(f"Name: {name}")
     st.write(f"Year: {year}")
