@@ -27,4 +27,4 @@ if st.sidebar.button("Predict Price"):
     if result[0] < 0:
         st.write("Sorry, the predicted price is negative. Please check your input values.")
     else:
-        st.write("Predicted price is:", str(round(result[0])))
+        st.write("Predicted price is:", str(round(result[0,0])))
